@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Tâches</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Gestion des Tâches</h1>
+
+        <div id="task-form" class="my-4">
+            <div class="input-group">
+                <input type="text" id="new-task" class="form-control" placeholder="Ajouter une nouvelle tâche">
+                <div class="input-group-append">
+                    <button id="add-task" class="btn btn-primary">Ajouter</button>
+                </div>
+            </div>
+        </div>
+
+        <ul id="task-list" class="list-group"></ul>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('add-task').addEventListener('click', function() {
+            var taskInput = document.getElementById('new-task').value.trim();
+            if (taskInput) {
+                addToTaskList(taskInput);
+                clearTaskInput();
+            }
+        });
+    
+        function addToTaskList(taskInput) {
+            var li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = taskInput;
+            document.getElementById('task-list').appendChild(li);
+        }
+    
+        function clearTaskInput() {
+            document.getElementById('new-task').value = '';
+        }
+    </script>
+
+
+</body>
+</html>
